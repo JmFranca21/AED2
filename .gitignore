@@ -1,0 +1,54 @@
+# Binários e objetos compilados (C/C++)
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.pdb
+*.ilk
+*.exp
+*.map
+*.gch
+*.pch
+
+# Build
+build/
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Logs e temporários
+*.log
+*.tmp
+*.temp
+*.swp
+*~
+
+# Arquivos de ambiente/segredos
+.env
+.env.local
