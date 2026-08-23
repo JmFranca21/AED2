@@ -6,10 +6,12 @@ Repositório com as atividades da disciplina, organizado por tipo de exercício.
 
 ### `atv-teoricas/`
 Atividades teóricas (enunciados/respostas em PDF).
-- `atv1-teorica.PDF` — Atividade teórica 1.
+- `joaomarcelo_francabatista_aula1Teorico.PDF` — Atividade teórica da aula 1.
 
 ### `atv-praticas/`
-Atividades práticas (exercícios de implementação/código). Cada exercício prático deve ser adicionado aqui.
+Atividades práticas (exercícios de implementação/código). Cada atividade tem um `.c` com o código-fonte e um `.pdf` com o relatório (tempo de execução e análise de complexidade), seguindo o padrão `joaomarcelo_francabatista_aula{N}Pratico`.
+- `joaomarcelo_francabatista_aula1Pratico.c` — código (primo recursivo x iterativo).
+- `joaomarcelo_francabatista_aula1Pratico.pdf` — relatório da aula 1 (tempos de execução e análise de complexidade).
 
 ### `estudos/`
 Códigos de estudo pessoal em C, sem vínculo direto com uma atividade avaliativa específica (ex.: implementações de algoritmos de ordenação).
