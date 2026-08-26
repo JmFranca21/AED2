@@ -12,6 +12,8 @@ Atividades teóricas (enunciados/respostas em PDF).
 Atividades práticas (exercícios de implementação/código). Cada atividade tem um `.c` com o código-fonte e um `.pdf` com o relatório (tempo de execução e análise de complexidade), seguindo o padrão `joaomarcelo_francabatista_aula{N}Pratico`.
 - `joaomarcelo_francabatista_aula1Pratico.c` — código (primo recursivo x iterativo).
 - `joaomarcelo_francabatista_aula1Pratico.pdf` — relatório da aula 1 (tempos de execução e análise de complexidade).
+- `joaomarcelo_francabatista_aula2Pratico.c` — código (Bubble Sort x Insertion Sort).
+- `joaomarcelo_francabatista_aula2Pratico.pdf` — relatório da aula 2 (tempos de execução e análise de complexidade).
 
 ### `estudos/`
 Códigos de estudo pessoal em C, sem vínculo direto com uma atividade avaliativa específica (ex.: implementações de algoritmos de ordenação).
