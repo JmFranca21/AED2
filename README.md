@@ -7,6 +7,8 @@ Repositório com as atividades da disciplina, organizado por tipo de exercício.
 ### `atv-teoricas/`
 Atividades teóricas (enunciados/respostas em PDF).
 - `joaomarcelo_francabatista_aula1Teorico.PDF` — Atividade teórica da aula 1.
+- `joaomarcelo_francabatista_aula2Teorico.PDF` — Atividade teórica da aula 2.
+- `joaomarcelo_francabatista_aula4Teorico.pdf` — Atividade teórica da aula 4 (Counting Sort, Radix Sort e eficiência dos algoritmos de ordenação).
 
 ### `atv-praticas/`
 Atividades práticas (exercícios de implementação/código). Cada atividade tem um `.c` com o código-fonte e um `.pdf` com o relatório (tempo de execução e análise de complexidade), seguindo o padrão `joaomarcelo_francabatista_aula{N}Pratico`.
@@ -14,6 +16,8 @@ Atividades práticas (exercícios de implementação/código). Cada atividade te
 - `joaomarcelo_francabatista_aula1Pratico.pdf` — relatório da aula 1 (tempos de execução e análise de complexidade).
 - `joaomarcelo_francabatista_aula2Pratico.c` — código (Bubble Sort x Insertion Sort).
 - `joaomarcelo_francabatista_aula2Pratico.pdf` — relatório da aula 2 (tempos de execução e análise de complexidade).
+- `joaomarcelo_francabatista_aula4Pratico.c` — código (Radix Sort de datas: Counting Sort estável x Selection Sort instável por campo).
+- `joaomarcelo_francabatista_aula4Pratico.pdf` — relatório da aula 4 (tempos de execução, corretude e análise de complexidade).
 
 ### `estudos/`
 Códigos de estudo pessoal em C, sem vínculo direto com uma atividade avaliativa específica (ex.: implementações de algoritmos de ordenação).
