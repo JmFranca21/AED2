@@ -2,6 +2,8 @@
 
 Repositório com as atividades da disciplina, organizado por tipo de exercício.
 
+> O andamento de cada atividade (concluídas e pendentes) está em [`STATUS.md`](STATUS.md).
+
 ## Estrutura das pastas
 
 ### `atv-teoricas/`
@@ -16,6 +18,7 @@ Atividades práticas (exercícios de implementação/código). Cada atividade te
 - `joaomarcelo_francabatista_aula1Pratico.pdf` — relatório da aula 1 (tempos de execução e análise de complexidade).
 - `joaomarcelo_francabatista_aula2Pratico.c` — código (Bubble Sort x Insertion Sort).
 - `joaomarcelo_francabatista_aula2Pratico.pdf` — relatório da aula 2 (tempos de execução e análise de complexidade).
+- `joaomarcelo_francabatista_aula3Pratico.c` — código (Shellsort x Heapsort x Quicksort recursivo e iterativo, em vetores de 100.000 elementos). Relatório em PDF pendente (ver `STATUS.md`).
 - `joaomarcelo_francabatista_aula4Pratico.c` — código (Radix Sort de datas: Counting Sort estável x Selection Sort instável por campo).
 - `joaomarcelo_francabatista_aula4Pratico.pdf` — relatório da aula 4 (tempos de execução, corretude e análise de complexidade).
 
