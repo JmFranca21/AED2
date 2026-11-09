@@ -13,7 +13,7 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 | 2 | Bubble Sort x Insertion Sort | ✅ | ✅ |
 | 3 | Ordenação n log n (Shellsort, Heapsort, Quicksort, Mergesort) | 🟡 código pronto, falta o PDF | ✅ |
 | 4 | Counting Sort e Radix Sort | ✅ | ✅ |
-| 11 | Tabelas Hash | ⬜ | ✅ |
+| 11 | Tabelas Hash | 🟡 código pronto, falta o PDF | ✅ |
 
 ## Pendências detalhadas
 
@@ -40,9 +40,21 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 
 - ✅ `atv-teoricas/joaomarcelo_francabatista_aula11Teorico.pdf`: encadeamento (m = 9), método da multiplicação (m = 1000) e endereçamento aberto (m = 11) com sondagem linear, quadrática (c1 = 1, c2 = 3) e hash duplo.
 
-### Aula 11 — Prática (⬜)
+### Aula 11 — Prática (🟡)
 
-- Enunciado ainda não recebido.
+- ✅ Código: `atv-praticas/joaomarcelo_francabatista_aula11Pratico.c`
+  - Tabela hash com m = 10000 e função hash da divisão: encadeamento e endereçamento aberto com sondagem linear.
+  - 10000 elementos aleatórios em [0, 10000] (seed 42, mesmos elementos nas duas tabelas); tempo de inserção (média de 10 execuções) e busca do 999.
+  - Corretude verificada (todas as chaves inseridas são encontradas nas duas tabelas), sem erros de memória nem vazamento (ASan/UBSan/leak).
+- ⬜ Rodar o código **no computador de uso habitual**:
+  ```bash
+  gcc joaomarcelo_francabatista_aula11Pratico.c -o aula11 -O0
+  ./aula11
+  ```
+- ⬜ Enviar a saída do programa (tempos de inserção e de busca das duas tabelas).
+- ⬜ Gerar `atv-praticas/joaomarcelo_francabatista_aula11Pratico.pdf` com a tabela de tempos pedida no enunciado (inserção e busca, encadeamento x sondagem linear), especificações da máquina e análise de complexidade.
+- ⬜ Atualizar o README com a linha do PDF e fazer o commit final.
+- Obs.: o enunciado cita o arquivo de código como `nome_sobrenome_aula14`, provavelmente erro de digitação (a aula é a 11); no repositório segue o padrão `aula11Pratico`.
 
 ## Padrão seguido em todas as atividades
 

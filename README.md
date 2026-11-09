@@ -23,6 +23,7 @@ Atividades práticas (exercícios de implementação/código). Cada atividade te
 - `joaomarcelo_francabatista_aula3Pratico.c` — código (Shellsort x Heapsort x Quicksort recursivo e iterativo, em vetores de 100.000 elementos). Relatório em PDF pendente (ver `STATUS.md`).
 - `joaomarcelo_francabatista_aula4Pratico.c` — código (Radix Sort de datas: Counting Sort estável x Selection Sort instável por campo).
 - `joaomarcelo_francabatista_aula4Pratico.pdf` — relatório da aula 4 (tempos de execução, corretude e análise de complexidade).
+- `joaomarcelo_francabatista_aula11Pratico.c` — código (Tabela Hash com m = 10000: encadeamento x endereçamento aberto com sondagem linear). Relatório em PDF pendente (ver `STATUS.md`).
 
 ### `estudos/`
 Códigos de estudo pessoal em C, sem vínculo direto com uma atividade avaliativa específica (ex.: implementações de algoritmos de ordenação).
