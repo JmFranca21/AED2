@@ -13,6 +13,7 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 | 2 | Bubble Sort x Insertion Sort | ✅ | ✅ |
 | 3 | Ordenação n log n (Shellsort, Heapsort, Quicksort, Mergesort) | 🟡 código pronto, falta o PDF | ✅ |
 | 4 | Counting Sort e Radix Sort | ✅ | ✅ |
+| 11 | Tabelas Hash | ⬜ | ✅ |
 
 ## Pendências detalhadas
 
@@ -34,6 +35,14 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 ### Aula 3 — Teórica (✅)
 
 - ✅ `atv-teoricas/joaomarcelo_francabatista_aula3Teorico.pdf`: Shellsort (h = 3, 2, 1), Quicksort (pivô: mediana de três), Heapsort e Mergesort passo a passo em {22, 35, 2, 1, 13, 7}, mais como funciona o Mergesort e comparação com o Quicksort.
+
+### Aula 11 — Teórica (✅)
+
+- ✅ `atv-teoricas/joaomarcelo_francabatista_aula11Teorico.pdf`: encadeamento (m = 9), método da multiplicação (m = 1000) e endereçamento aberto (m = 11) com sondagem linear, quadrática (c1 = 1, c2 = 3) e hash duplo.
+
+### Aula 11 — Prática (⬜)
+
+- Enunciado ainda não recebido.
 
 ## Padrão seguido em todas as atividades
 

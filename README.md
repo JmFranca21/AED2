@@ -12,6 +12,7 @@ Atividades teóricas (enunciados/respostas em PDF).
 - `joaomarcelo_francabatista_aula2Teorico.PDF` — Atividade teórica da aula 2.
 - `joaomarcelo_francabatista_aula3Teorico.pdf` — Atividade teórica da aula 3 (Shellsort, Quicksort, Heapsort e Mergesort passo a passo).
 - `joaomarcelo_francabatista_aula4Teorico.pdf` — Atividade teórica da aula 4 (Counting Sort, Radix Sort e eficiência dos algoritmos de ordenação).
+- `joaomarcelo_francabatista_aula11Teorico.pdf` — Atividade teórica da aula 11 (Tabelas Hash: encadeamento, método da multiplicação e endereçamento aberto com sondagem linear, quadrática e hash duplo).
 
 ### `atv-praticas/`
 Atividades práticas (exercícios de implementação/código). Cada atividade tem um `.c` com o código-fonte e um `.pdf` com o relatório (tempo de execução e análise de complexidade), seguindo o padrão `joaomarcelo_francabatista_aula{N}Pratico`.
