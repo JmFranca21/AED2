@@ -10,6 +10,7 @@ Repositório com as atividades da disciplina, organizado por tipo de exercício.
 Atividades teóricas (enunciados/respostas em PDF).
 - `joaomarcelo_francabatista_aula1Teorico.PDF` — Atividade teórica da aula 1.
 - `joaomarcelo_francabatista_aula2Teorico.PDF` — Atividade teórica da aula 2.
+- `joaomarcelo_francabatista_aula3Teorico.pdf` — Atividade teórica da aula 3 (Shellsort, Quicksort, Heapsort e Mergesort passo a passo).
 - `joaomarcelo_francabatista_aula4Teorico.pdf` — Atividade teórica da aula 4 (Counting Sort, Radix Sort e eficiência dos algoritmos de ordenação).
 
 ### `atv-praticas/`

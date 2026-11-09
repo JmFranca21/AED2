@@ -11,7 +11,7 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 |------|------|-------------------------|------------------|
 | 1 | Recursivo x iterativo (primo) | ✅ | ✅ |
 | 2 | Bubble Sort x Insertion Sort | ✅ | ✅ |
-| 3 | Ordenação n log n (Shellsort, Heapsort, Quicksort) | 🟡 código pronto, falta o PDF | ⬜ |
+| 3 | Ordenação n log n (Shellsort, Heapsort, Quicksort, Mergesort) | 🟡 código pronto, falta o PDF | ✅ |
 | 4 | Counting Sort e Radix Sort | ✅ | ✅ |
 
 ## Pendências detalhadas
@@ -31,9 +31,9 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 - ⬜ Gerar `atv-praticas/joaomarcelo_francabatista_aula3Pratico.pdf` com: especificações da máquina, metodologia, tabela de tempos, resposta de "qual o melhor algoritmo n log n" e análise de complexidade (O/Θ/Ω).
 - ⬜ Atualizar o README com a linha do PDF e fazer o commit final.
 
-### Aula 3 — Teórica (⬜)
+### Aula 3 — Teórica (✅)
 
-- Enunciado ainda não recebido.
+- ✅ `atv-teoricas/joaomarcelo_francabatista_aula3Teorico.pdf`: Shellsort (h = 3, 2, 1), Quicksort (pivô: mediana de três), Heapsort e Mergesort passo a passo em {22, 35, 2, 1, 13, 7}, mais como funciona o Mergesort e comparação com o Quicksort.
 
 ## Padrão seguido em todas as atividades
 
