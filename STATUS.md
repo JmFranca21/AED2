@@ -11,54 +11,37 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 |------|------|-------------------------|------------------|
 | 1 | Recursivo x iterativo (primo) | ✅ | ✅ |
 | 2 | Bubble Sort x Insertion Sort | ✅ | ✅ |
-| 3 | Ordenação n log n (Shellsort, Heapsort, Quicksort, Mergesort) | 🟡 código pronto, falta o PDF | ✅ |
+| 3 | Ordenação n log n (Shellsort, Heapsort, Quicksort, Mergesort) | ✅ | ✅ |
 | 4 | Counting Sort e Radix Sort | ✅ | ✅ |
-| 11 | Tabelas Hash | 🟡 código pronto, falta o PDF | ✅ |
+| 5 | Ordenação externa (intercalação balanceada, polifásica, quicksort externo) | ✅ | ✅ |
+| 6 | Métodos de pesquisa (vetor, busca binária, árvore binária) | ✅ | ✅ |
+| 7 | Árvore AVL | ✅ | ✅ |
+| 8 | Árvore vermelho-preto | ✅ | ✅ |
+| 9 | Árvore B | ✅ | ✅ |
+| 10 | Árvores B+ e B* | — (sem prática no enunciado) | ✅ |
+| 11 | Tabelas Hash | ✅ | ✅ |
+| 12 | Grafos: BFS e DFS | ✅ | ✅ |
 
-## Pendências detalhadas
+Os enunciados de todas as aulas estão em `enunciados-atvs/`.
 
-### Aula 3 — Prática (🟡)
+## Como foram feitos (aulas 3 a 12)
 
-- ✅ Código: `atv-praticas/joaomarcelo_francabatista_aula3Pratico.c`
-  - Shellsort (h de Knuth), Heapsort, Quicksort recursivo e iterativo (pivô: mediana de três).
-  - Vetores de 100.000 elementos (aleatório, crescente, decrescente), seed 42, média de 10 execuções.
-  - Corretude verificada (todos os algoritmos ordenam os 3 vetores) e sem erros de memória (ASan/UBSan).
-- ⬜ Rodar o código **no computador de uso habitual** (os tempos do relatório precisam ser medidos lá, como nas aulas anteriores):
-  ```bash
-  gcc joaomarcelo_francabatista_aula3Pratico.c -o aula3 -O0
-  ./aula3
-  ```
-- ⬜ Enviar a saída do programa (tabela de tempos) para montar o relatório.
-- ⬜ Gerar `atv-praticas/joaomarcelo_francabatista_aula3Pratico.pdf` com: especificações da máquina, metodologia, tabela de tempos, resposta de "qual o melhor algoritmo n log n" e análise de complexidade (O/Θ/Ω).
-- ⬜ Atualizar o README com a linha do PDF e fazer o commit final.
+- **Práticas:** o código foi compilado com `gcc -O0` (as aulas 7, 8 e 9 precisam de `-lm`) e executado neste computador (ASUS VivoBook X515JF, Intel i5-1035G1, 8 GB, Windows 11, gcc 13.2.0). Os tempos dos PDFs são de uma execução de referência; o programa foi repetido mais vezes e o PDF informa a faixa de variação. Em todas as práticas há verificação de corretude (as estruturas/ordenações são conferidas antes de medir o tempo).
+- **Teóricas com passo a passo (aulas 5, 6, 7, 8, 9, 10 e 12):** os desenhos e passos foram gerados por simuladores (BST, AVL, vermelho-preto, árvores B/B+/B*, ordenação externa, grafos) testados com milhares de operações aleatórias, e os códigos citados nos PDFs (remoção em BST, percursos iterativos, remoção em AVL) foram compilados e testados em C.
+- **Aula 5 (prática):** cria arquivos binários temporários na pasta onde é executada e os apaga ao final.
+- **Aula 8 (prática):** leva cerca de 1 minuto para rodar (inserção ordenada de 100.000 elementos em vetor).
 
-### Aula 3 — Teórica (✅)
+## Observações sobre os enunciados
 
-- ✅ `atv-teoricas/joaomarcelo_francabatista_aula3Teorico.pdf`: Shellsort (h = 3, 2, 1), Quicksort (pivô: mediana de três), Heapsort e Mergesort passo a passo em {22, 35, 2, 1, 13, 7}, mais como funciona o Mergesort e comparação com o Quicksort.
-
-### Aula 11 — Teórica (✅)
-
-- ✅ `atv-teoricas/joaomarcelo_francabatista_aula11Teorico.pdf`: encadeamento (m = 9), método da multiplicação (m = 1000) e endereçamento aberto (m = 11) com sondagem linear, quadrática (c1 = 1, c2 = 3) e hash duplo.
-
-### Aula 11 — Prática (🟡)
-
-- ✅ Código: `atv-praticas/joaomarcelo_francabatista_aula11Pratico.c`
-  - Tabela hash com m = 10000 e função hash da divisão: encadeamento e endereçamento aberto com sondagem linear.
-  - 10000 elementos aleatórios em [0, 10000] (seed 42, mesmos elementos nas duas tabelas); tempo de inserção (média de 10 execuções) e busca do 999.
-  - Corretude verificada (todas as chaves inseridas são encontradas nas duas tabelas), sem erros de memória nem vazamento (ASan/UBSan/leak).
-- ⬜ Rodar o código **no computador de uso habitual**:
-  ```bash
-  gcc joaomarcelo_francabatista_aula11Pratico.c -o aula11 -O0
-  ./aula11
-  ```
-- ⬜ Enviar a saída do programa (tempos de inserção e de busca das duas tabelas).
-- ⬜ Gerar `atv-praticas/joaomarcelo_francabatista_aula11Pratico.pdf` com a tabela de tempos pedida no enunciado (inserção e busca, encadeamento x sondagem linear), especificações da máquina e análise de complexidade.
-- ⬜ Atualizar o README com a linha do PDF e fazer o commit final.
-- Obs.: o enunciado cita o arquivo de código como `nome_sobrenome_aula14`, provavelmente erro de digitação (a aula é a 11); no repositório segue o padrão `aula11Pratico`.
+- Aula 11: o enunciado cita o arquivo de código como `nome_sobrenome_aula14`, provavelmente erro de digitação; segue o padrão `aula11Pratico`.
+- Aula 8: o enunciado escreve "50.000" no texto e "5000" na tabela; foi usado 50.000. Também cita `aula08Pratico`; no repositório segue o padrão `aula8Pratico`.
+- Aula 9: o enunciado pede só o `.c` (nomeado `aula9Pratico`); o PDF com a análise é um complemento.
+- Aula 12 (prática): o enunciado pede só o código; o PDF com a análise é um complemento.
+- Aula 10: o enunciado só tem a parte teórica.
 
 ## Padrão seguido em todas as atividades
 
-- Prática: `joaomarcelo_francabatista_aula{N}Pratico.c` + `.pdf` (relatório de 1 página) em `atv-praticas/`.
+- Prática: `joaomarcelo_francabatista_aula{N}Pratico.c` + `.pdf` (relatório) em `atv-praticas/`.
 - Teórica: `joaomarcelo_francabatista_aula{N}Teorico.pdf` em `atv-teoricas/`.
 - Código em C sem acentos, `srand(42)`, tempo com `clock_gettime(CLOCK_MONOTONIC)` e nota de utilização de IA no final.
 - Cada atividade é listada no `README.md`.
