@@ -10,7 +10,8 @@ Enunciado: [`enunciados-atvs/Trabalho 3 - Analise de dados em formato de grafos.
 | `joaomarcelo_francabatista_plot.py` | Plot do grafo (item B) com NetworkX + matplotlib, usando as métricas calculadas em C |
 | `joaomarcelo_francabatista_base.txt` | Dataset ego-Facebook do SNAP (`facebook_combined.txt`): 4.039 vértices, 88.234 arestas |
 | `grafo_layout.csv` | Posições já calculadas dos vértices (cache do plot, deixa a opção B instantânea) |
-| `resultados/` | Figuras, rankings completos, saídas do programa e validação no ego-Facebook |
+| `resultados/` | Figuras, rankings completos, saídas do programa, validação e tempos no ego-Facebook |
+| `medir_tempos_windows.bat` | Dois cliques: compila com o gcc do Windows (`-O2` e `-O0`), roda o item G e grava `tempos_windows.txt` |
 | `validacao/validar_networkx.py` | Confere os resultados do C contra o NetworkX (não faz parte da entrega) |
 | `validacao/karate.txt` | Karate Club (34 vértices), usado como teste |
 
@@ -63,3 +64,17 @@ Grafo conexo (1 componente), densidade 1,08%, grau médio 43,69, grau mínimo 1 
 | 5 | 0 (347) | 1684 (0,3936) | 1085 (0,1490) |
 
 O vértice 107 lidera as três métricas. No plot, os vértices de maior betweenness aparecem como pontes entre as comunidades. Busca do item F: tabela hash ~1–2 ns por busca; busca sequencial ~40 ns (ID no início) a ~1.440 ns (ID inexistente).
+
+## Tempos no notebook (i5-1035G1)
+
+Média de 3 execuções (item G), no ego-Facebook. Medidos na VM Linux do app Claude no notebook (2 vCPU, Ubuntu 22.04, gcc 11.4); arquivo `resultados/tempos_notebook_vm_linux.txt`.
+
+| Métrica | Complexidade | `-O2` | `-O0` |
+|---|---|---|---|
+| Leitura e construção | O(V + E) | 0,012 s | 0,026 s |
+| Grau | O(V) | 0,00002 s | 0,00003 s |
+| Closeness | O(V(V+E)) | 1,06 s | 3,28 s |
+| Betweenness | O(V·E) | 2,73 s | 8,80 s |
+| Ordenação (merge sort) | O(V log V) | 0,0008 s | 0,0013 s |
+
+Para os tempos nativos no Windows 11 (gcc 13.2, padrão das outras práticas), basta dar dois cliques em `medir_tempos_windows.bat`.

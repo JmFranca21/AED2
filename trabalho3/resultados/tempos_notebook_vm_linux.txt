@@ -1,0 +1,36 @@
+=== Maquina: VM Linux do app Claude no notebook (mesmo processador) ===
+model name	: Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz
+vCPUs: 2
+Mem:           2.8Gi       135Mi       1.6Gi       0.0Ki       1.1Gi       2.6Gi
+Linux 6.8.0-149-generic
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+=== -O2 ===
+Tempo de leitura e construcao: 0.012026 s
+  0 (grau 347): 1 2 3 4 5 6 7 8 9 10 ...
+  1 (grau 17): 0 48 53 54 73 88 92 119 126 133 ...
+  2 (grau 10): 0 20 115 116 149 226 312 326 333 343
+  3 (grau 17): 0 9 25 26 67 72 85 122 142 170 ...
+  4 (grau 10): 0 78 152 181 195 218 273 275 306 328
+--
+=== G) Tempo de execucao das metricas (3 execucoes cada) ===
+n = 4039, m = 88234
+  metrica      complex.       media (s)      min (s)      max (s)
+  Grau         O(V)            0.000019     0.000005     0.000044
+  Closeness    O(V(V+E))       1.059867     1.003922     1.104615
+  Betweenness  O(VE)           2.726226     2.667333     2.763449
+  Ordenacao    O(V log V)      0.000811
+=== -O0 ===
+Tempo de leitura e construcao: 0.025622 s
+  0 (grau 347): 1 2 3 4 5 6 7 8 9 10 ...
+  1 (grau 17): 0 48 53 54 73 88 92 119 126 133 ...
+  2 (grau 10): 0 20 115 116 149 226 312 326 333 343
+  3 (grau 17): 0 9 25 26 67 72 85 122 142 170 ...
+  4 (grau 10): 0 78 152 181 195 218 273 275 306 328
+--
+=== G) Tempo de execucao das metricas (3 execucoes cada) ===
+n = 4039, m = 88234
+  metrica      complex.       media (s)      min (s)      max (s)
+  Grau         O(V)            0.000027     0.000023     0.000034
+  Closeness    O(V(V+E))       3.283260     3.016274     3.617103
+  Betweenness  O(VE)           8.797291     8.380698     9.326699
+  Ordenacao    O(V log V)      0.001254
