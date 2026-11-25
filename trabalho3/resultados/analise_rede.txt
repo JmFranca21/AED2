@@ -1,0 +1,96 @@
+=== 1. As 10 redes ego ===
+ego | amigos no grafo | amigos so dele | amigos em comum com outros egos
+    0 |   347 |   340 |    6
+  107 |  1045 |   998 |   43
+  348 |   229 |   173 |   54
+  414 |   159 |   103 |   54
+  686 |   170 |   142 |   27
+  698 |    68 |    36 |   30
+ 1684 |   792 |   776 |   15
+ 1912 |   755 |   748 |    7
+ 3437 |   547 |   542 |    4
+ 3980 |    59 |    58 |    1
+amizades diretas entre egos: [(0, 107), (107, 348), (107, 414), (107, 1684), (348, 414), (686, 698), (698, 3437)]
+nao-egos: 4029 | amigos de nenhum ego: 0 | de 1 ego: 3916 (97.2%) | de 2+ egos: 113
+pares de egos com amigos em comum:
+   0-107: 2
+   0-348: 3
+   0-414: 2
+   0-1684: 2
+   0-1912: 2
+   107-348: 16
+   107-414: 16
+   107-1684: 14
+   107-1912: 6
+   107-3437: 1
+   348-414: 44
+   348-1912: 2
+   348-3437: 1
+   414-1912: 2
+   414-3437: 1
+   414-3980: 1
+   686-698: 27
+   698-1684: 1
+   698-3437: 2
+   1684-1912: 1
+
+=== 2. Comunidades (Louvain, NetworkX) x redes ego ===
+16 comunidades, modularidade 0.835
+    548 vertices:  99.1% da rede do ego 3437  {3437: 543, 'varios': 3, 698: 2}
+    535 vertices:  98.1% da rede do ego 1684  {1684: 525, 'varios': 9, 107: 1}
+    435 vertices:  99.3% da rede do ego 107  {107: 432, 'varios': 3}
+    431 vertices:  40.4% da rede do ego 348  {348: 174, 107: 115, 414: 79}
+    423 vertices:  99.1% da rede do ego 1912  {1912: 419, 'varios': 4}
+    350 vertices:  97.4% da rede do ego 0  {0: 341, 1684: 7, 'varios': 2}
+    324 vertices:  99.7% da rede do ego 107  {107: 323, 'varios': 1}
+    237 vertices: 100.0% da rede do ego 1912  {1912: 237}
+    226 vertices: 100.0% da rede do ego 1684  {1684: 226}
+    206 vertices:  69.4% da rede do ego 686  {686: 143, 698: 35, 'varios': 28}
+    128 vertices: 100.0% da rede do ego 107  {107: 128}
+     73 vertices: 100.0% da rede do ego 1912  {1912: 73}
+     60 vertices:  98.3% da rede do ego 3980  {3980: 59, 'varios': 1}
+     25 vertices: 100.0% da rede do ego 414  {414: 25}
+     19 vertices: 100.0% da rede do ego 1684  {1684: 19}
+     19 vertices: 100.0% da rede do ego 1912  {1912: 19}
+
+=== 3. Vertices centrais e de quais egos sao amigos ===
+grau:
+     107  grau 1045  EGO
+    1684  grau  792  EGO
+    1912  grau  755  EGO
+    3437  grau  547  EGO
+       0  grau  347  EGO
+    2543  grau  294  amigo de [1912]
+    2347  grau  291  amigo de [1912]
+    1888  grau  254  amigo de [107]
+    1800  grau  245  amigo de [107]
+    1663  grau  235  amigo de [107]
+closeness:
+     107  grau 1045  EGO
+      58  grau   12  amigo de [0, 107, 1684, 1912]
+     428  grau  115  amigo de [107, 348, 414, 1912]
+     563  grau   91  amigo de [107, 348, 414, 1912]
+    1684  grau  792  EGO
+     171  grau   22  amigo de [0, 107, 1684]
+     348  grau  229  EGO
+     483  grau  231  amigo de [107, 348, 414]
+     414  grau  159  EGO
+     376  grau  133  amigo de [107, 348, 414]
+betweenness:
+     107  grau 1045  EGO
+    1684  grau  792  EGO
+    3437  grau  547  EGO
+    1912  grau  755  EGO
+    1085  grau   66  amigo de [107, 3437]
+       0  grau  347  EGO
+     698  grau   68  EGO
+     567  grau   63  amigo de [348, 414, 3437]
+      58  grau   12  amigo de [0, 107, 1684, 1912]
+     428  grau  115  amigo de [107, 348, 414, 1912]
+betweenness total: egos 62.6% | pontes (amigos de 2+ egos, 113 vertices) 31.0% | demais 6.4%
+
+=== 4. Distribuicao do grau e mundo pequeno ===
+grau <= 10: 23.8% | <= 25: 50.6% | >= 100: 491 | >= 200: 41
+agrupamento medio 0.6055 | esperado num grafo aleatorio de mesma densidade 0.0108 | razao 56.0x
+triangulos: 1612010
+distancia media (media das dist_media do C): 3.693

@@ -6,8 +6,9 @@ Enunciado: [`enunciados-atvs/Trabalho 3 - Analise de dados em formato de grafos.
 
 | Arquivo | O que é |
 |---|---|
-| `joaomarcelo_francabatista_algoritmo.c` | Programa em C: leitura, TAD grafo (lista de adjacência), tabela hash, grau, closeness (BFS), betweenness (Brandes), merge sort, busca, tempos e menu A–G |
+| `joaomarcelo_francabatista_algoritmo.c` | Programa em C: leitura, TAD grafo (lista de adjacência), tabela hash, grau, closeness (BFS), betweenness (Brandes), merge sort, busca, tempos, menu A–G e opção extra H (experimento de remoção) |
 | `joaomarcelo_francabatista_plot.py` | Plot do grafo (item B) com NetworkX + matplotlib, usando as métricas calculadas em C |
+| `joaomarcelo_francabatista_analise.py` | Análise da rede: redes ego, pontes, comunidades (Louvain), distribuição do grau; gera `analise_rede.txt`, `grafo_egos.png` e `distribuicao_grau.png` |
 | `joaomarcelo_francabatista_base.txt` | Dataset ego-Facebook do SNAP (`facebook_combined.txt`): 4.039 vértices, 88.234 arestas |
 | `grafo_layout.csv` | Posições já calculadas dos vértices (cache do plot, deixa a opção B instantânea) |
 | `resultados/` | Figuras, rankings completos, saídas do programa, validação e tempos no ego-Facebook |
@@ -79,3 +80,15 @@ Média de 3 execuções (item G), no ego-Facebook. Medidos na VM Linux do app Cl
 | Ordenação (merge sort) | O(V log V) | 0,0008 s | 0,0013 s |
 
 Para os tempos nativos no Windows 11 (gcc 13.2, padrão das outras práticas), basta dar dois cliques em `medir_tempos_windows.bat`.
+
+## Análise da rede: o que os dados significam
+
+**O que é o grafo.** São 10 usuários do Facebook que responderam a uma pesquisa em 2012 (os *egos*: 0, 107, 348, 414, 686, 698, 1684, 1912, 3437 e 3980), os amigos deles e as amizades entre esses amigos (McAuley e Leskovec, 2012). Cada vértice é um usuário anonimizado e cada aresta é uma amizade. É a união de 10 redes pessoais, não uma amostra aleatória do Facebook: o grau é o número de amigos *dentro dessas redes*, e os egos têm grau alto por construção.
+
+**Principais conclusões** (`resultados/analise_rede.txt`, figura `resultados/grafo_egos.png`):
+- A rede são 10 grupos quase isolados, um por ego. 97,2% das pessoas são amigas de um único ego; só 113 são amigas de 2 ou mais. O Louvain acha 16 comunidades (modularidade 0,835), 14 delas com 97% ou mais de vértices de um só ego.
+- **Grau** aponta os populares de cada grupo: os 5 primeiros são egos, e os 5 seguintes têm mais de 230 amigos dentro de uma única rede ego.
+- **Closeness** aponta quem está perto de vários grupos. O 58 tem 12 amigos, mas é amigo de 4 egos e é o 2º em closeness.
+- **Betweenness** aponta as pontes. Egos e pontes (3% dos vértices) concentram 93,6% do betweenness. O 1085 é o *único* amigo em comum entre 107 e 3437.
+- **Remoção (opção H):** tirar os 10 de maior betweenness separa 20% da rede (as redes do 3437 e do 686); tirar os 10 de maior grau, 2%; tirar 10 aleatórios, nada.
+- **Mundo pequeno:** distância média de 3,69, diâmetro 8 e agrupamento 0,606, 56 vezes o de um grafo aleatório de mesma densidade.

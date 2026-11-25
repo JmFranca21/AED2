@@ -37,6 +37,8 @@
  *   E) lista do betweenness de todos os vertices em ordem crescente
  *   F) pesquisa um vertice (ou uma aresta) e informa se foi encontrado
  *   G) tempo de execucao das metricas
+ *   H) (extra) experimento de remocao: retira os k vertices mais centrais de
+ *      cada metrica e mostra em quantas componentes a rede se divide
  * As listas completas sao gravadas em ranking_grau.txt, ranking_closeness.txt
  * e ranking_betweenness.txt; na tela aparecem o inicio, o fim e o top 10.
  *
@@ -831,6 +833,110 @@ void itemG(const Grafo *g, Metricas *M) {
 }
 
 /* ======================================================================
+ * Item H (analise extra): experimento de remocao
+ * Remove os k vertices mais centrais segundo cada metrica (e k vertices
+ * sorteados, como comparacao) e conta em quantas componentes conexas a rede
+ * se divide. Mostra quais vertices sustentam a conexao da rede: se poucos
+ * vertices removidos desconectam muitos outros, eles sao "pontes".
+ * Custo: uma BFS por componente, O(V + E) por criterio.
+ * ====================================================================== */
+static int componentesSem(const Grafo *g, const char *removido, int *maior, int *isolados) {
+    int n = g->n;
+    int *fila = malloc((size_t)n * sizeof(int));
+    char *visto = calloc((size_t)n, 1);
+    int comp = 0;
+    *maior = 0;
+    *isolados = 0;
+    for (int s = 0; s < n; s++) {
+        if (removido[s] || visto[s]) continue;
+        int ini = 0, fim = 0;
+        fila[fim++] = s;
+        visto[s] = 1;
+        while (ini < fim) {
+            int v = fila[ini++];
+            for (int i = 0; i < g->grau[v]; i++) {
+                int w = g->viz[v][i];
+                if (!removido[w] && !visto[w]) { visto[w] = 1; fila[fim++] = w; }
+            }
+        }
+        comp++;
+        if (fim > *maior) *maior = fim;
+        if (fim == 1) (*isolados)++;
+    }
+    free(fila);
+    free(visto);
+    return comp;
+}
+
+/* marca para remocao os k vertices de maior valor (empate: menor ID) */
+static void marcarTopK(const Grafo *g, const double *valores, int k, char *removido) {
+    int n = g->n;
+    Par *p = ordenarCrescente(g, valores, NULL);
+    int marcados = 0, i = n - 1;
+    while (marcados < k && i >= 0) {
+        int j = i;
+        while (j > 0 && p[j - 1].valor == p[i].valor) j--;
+        for (int t = j; t <= i && marcados < k; t++, marcados++) removido[p[t].idx] = 1;
+        i = j - 1;
+    }
+    free(p);
+}
+
+void itemH(const Grafo *g, Metricas *M, int k) {
+    int n = g->n;
+    if (k < 1) k = 1;
+    if (k > n - 1) k = n - 1;
+    garantirGrau(g, M);
+    garantirCloseness(g, M);
+    garantirBetweenness(g, M);
+
+    int maior, isolados;
+    char *removido = calloc((size_t)n, 1);
+    int comp0 = componentesSem(g, removido, &maior, &isolados);
+    printf("\n=== H) Experimento de remocao: retirar os %d vertices mais centrais ===\n", k);
+    printf("Rede original: %d vertices em %d componente(s).\n", n, comp0);
+    printf("  %-22s %12s %22s %10s\n", "criterio", "componentes", "maior componente", "isolados");
+
+    const char *nomes[3] = { "maior grau", "maior closeness", "maior betweenness" };
+    const double *vals[3] = { M->grau, M->closeness, M->betweenness };
+    for (int c = 0; c < 3; c++) {
+        memset(removido, 0, (size_t)n);
+        marcarTopK(g, vals[c], k, removido);
+        int comp = componentesSem(g, removido, &maior, &isolados);
+        printf("  %-22s %12d %12d (%5.1f%%) %10d\n", nomes[c], comp, maior,
+               100.0 * maior / n, isolados);
+        /* lista os removidos na ordem do ranking (do mais central ao menos) */
+        printf("      removidos:");
+        int mostrados = 0;
+        Par *p = ordenarCrescente(g, vals[c], NULL);
+        for (int i = n - 1; i >= 0 && mostrados < k && mostrados < 15; i--)
+            if (removido[p[i].idx]) { printf(" %lld", g->idOriginal[p[i].idx]); mostrados++; }
+        if (k > 15) printf(" ...");
+        printf("\n");
+        free(p);
+    }
+
+    /* comparacao: k vertices sorteados (media de 5 sorteios, semente fixa) */
+    const int SORTEIOS = 5;
+    double somaComp = 0, somaMaior = 0, somaIso = 0;
+    srand(42);
+    for (int r = 0; r < SORTEIOS; r++) {
+        memset(removido, 0, (size_t)n);
+        for (int t = 0; t < k; ) {
+            int v = rand() % n;
+            if (!removido[v]) { removido[v] = 1; t++; }
+        }
+        int comp = componentesSem(g, removido, &maior, &isolados);
+        somaComp += comp; somaMaior += maior; somaIso += isolados;
+    }
+    printf("  %-22s %12.1f %12.1f (%5.1f%%) %10.1f   (media de %d sorteios)\n", "aleatorio",
+           somaComp / SORTEIOS, somaMaior / SORTEIOS, 100.0 * somaMaior / SORTEIOS / n,
+           somaIso / SORTEIOS, SORTEIOS);
+    free(removido);
+    printf("Quanto mais a rede se fragmenta, mais os vertices removidos funcionavam como pontes.\n");
+}
+
+/* ======================================================================
  * Programa principal
  * ====================================================================== */
 static void lerLinha(char *buf, int tam) {
@@ -862,6 +968,7 @@ int main(int argc, char **argv) {
         itemC(g, M);
         itemD(g, M);
         itemE(g, M);
+        itemH(g, M, 10);
         if (exportarCSV(g, M)) printf("\nGravados grafo_vertices.csv e grafo_arestas.csv\n");
         printf("\nResumo dos tempos: grau %.6f s | closeness %.6f s | betweenness %.6f s\n",
                M->tGrau, M->tCloseness, M->tBetweenness);
@@ -883,6 +990,7 @@ int main(int argc, char **argv) {
         printf("  E - Betweenness dos vertices (ordem crescente)\n");
         printf("  F - Pesquisar vertice (\"id\") ou aresta (\"id1 id2\")\n");
         printf("  G - Tempo de execucao das metricas\n");
+        printf("  H - Experimento: remover os k vertices mais centrais\n");
         printf("  T - Trocar o arquivo de entrada\n");
         printf("  0 - Sair\n");
         printf("Opcao: ");
@@ -911,6 +1019,14 @@ int main(int argc, char **argv) {
             itemF(g, M, busca);
         }
         else if (c == 'G') { if (!precisaGrafo(g)) itemG(g, M); }
+        else if (c == 'H') {
+            if (precisaGrafo(g)) continue;
+            char kbuf[MAX_LINHA];
+            printf("Quantos vertices remover (k)? [10]: ");
+            lerLinha(kbuf, sizeof(kbuf));
+            int k = atoi(kbuf);
+            itemH(g, M, k > 0 ? k : 10);
+        }
         else printf("Opcao invalida.\n");
     }
 

@@ -10,6 +10,7 @@ Arquivo: joaomarcelo_francabatista_base.txt
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: 
@@ -25,7 +26,7 @@ Grau medio 2m/n:             43.6910
 Grau minimo / maximo:        1 / 1045
 Componentes conexas:         1 (maior com 4039 vertices)
 Memoria - lista de adjacencia: 0.67 MB | matriz de adjacencia (1 byte/celula): 15.56 MB
-Tempo de leitura e construcao: 0.008795 s
+Tempo de leitura e construcao: 0.008829 s
 Exemplo - vizinhos dos 5 primeiros vertices lidos:
   0 (grau 347): 1 2 3 4 5 6 7 8 9 10 ...
   1 (grau 17): 0 48 53 54 73 88 92 119 126 133 ...
@@ -42,6 +43,7 @@ Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: Calculando betweenness (Brandes, 4039 BFS)...
@@ -92,7 +94,7 @@ Opcao: Calculando betweenness (Brandes, 4039 BFS)...
        9            58     687594.98337467      0.08436021
       10           428     524164.06777576      0.06430906
 (lista completa gravada em ranking_betweenness.txt)
-Tempo do calculo do betweenness: 2.113375 s | ordenacao (merge sort): 0.000350 s
+Tempo do calculo do betweenness: 3.185686 s | ordenacao (merge sort): 0.000492 s
 
 --------------------------------------------------
 Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
@@ -103,6 +105,7 @@ Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: Digite o ID do vertice (ou dois IDs para uma aresta): 
@@ -110,7 +113,7 @@ Opcao: Digite o ID do vertice (ou dois IDs para uma aresta):
 Vertice 107 ENCONTRADO (indice interno 107).
   grau: 1045 | vizinhos: 0 58 171 348 353 363 366 376 389 414 420 428 475 483 484 ... (+1030)
   betweenness: 3916560.1444 | normalizado: 0.480518 (posicao 1)
-  Tempo medio por busca: tabela hash 2.2 ns | busca sequencial 38.6 ns
+  Tempo medio por busca: tabela hash 1.4 ns | busca sequencial 65.8 ns
 
 --------------------------------------------------
 Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
@@ -121,12 +124,13 @@ Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: Digite o ID do vertice (ou dois IDs para uma aresta): 
 === F) Pesquisa no grafo ===
 Vertice 5000 NAO foi encontrado no grafo.
-  Tempo medio por busca: tabela hash 1.4 ns | busca sequencial 1440.1 ns
+  Tempo medio por busca: tabela hash 1.7 ns | busca sequencial 2407.0 ns
 
 --------------------------------------------------
 Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
@@ -137,6 +141,7 @@ Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: Digite o ID do vertice (ou dois IDs para uma aresta): 
@@ -153,16 +158,17 @@ Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: 
 === G) Tempo de execucao das metricas (3 execucoes cada) ===
 n = 4039, m = 88234
   metrica      complex.       media (s)      min (s)      max (s)
-  Grau         O(V)            0.000007     0.000006     0.000008
-  Closeness    O(V(V+E))       0.686438     0.672011     0.710290
-  Betweenness  O(VE)           2.135336     2.093333     2.161907
-  Ordenacao    O(V log V)      0.000375
+  Grau         O(V)            0.000007     0.000006     0.000007
+  Closeness    O(V(V+E))       1.010300     0.821476     1.243218
+  Betweenness  O(VE)           2.589330     2.443625     2.715263
+  Ordenacao    O(V log V)      0.000331
 
 --------------------------------------------------
 Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
@@ -173,6 +179,32 @@ Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
   E - Betweenness dos vertices (ordem crescente)
   F - Pesquisar vertice ("id") ou aresta ("id1 id2")
   G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: Quantos vertices remover (k)? [10]: 
+=== H) Experimento de remocao: retirar os 10 vertices mais centrais ===
+Rede original: 4039 vertices em 1 componente(s).
+  criterio                componentes       maior componente   isolados
+  maior grau                       59         3957 ( 98.0%)         50
+      removidos: 107 1684 1912 3437 0 2543 2347 1888 1800 1663
+  maior closeness                  39         3920 ( 97.1%)         31
+      removidos: 107 58 428 563 1684 171 348 483 414 376
+  maior betweenness                67         3220 ( 79.7%)         56
+      removidos: 107 1684 3437 1912 1085 0 698 567 58 428
+  aleatorio                       1.0       4029.0 ( 99.8%)        0.0   (media de 5 sorteios)
+Quanto mais a rede se fragmenta, mais os vertices removidos funcionavam como pontes.
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  H - Experimento: remover os k vertices mais centrais
   T - Trocar o arquivo de entrada
   0 - Sair
 Opcao: 
