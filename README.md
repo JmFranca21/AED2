@@ -7,7 +7,7 @@ Repositório com as atividades da disciplina, organizado por tipo de exercício.
 ## Estrutura das pastas
 
 ### `enunciados-atvs/`
-Enunciados (PDF) enviados pela professora para todas as atividades, práticas e teóricas, das aulas 3 a 12.
+Enunciados (PDF) enviados pela professora para todas as atividades, práticas e teóricas, das aulas 3 a 12, e do Trabalho 3.
 
 ### `atv-teoricas/`
 Atividades teóricas (resolução em PDF).
@@ -37,6 +37,12 @@ Atividades práticas (exercícios de implementação/código). Cada atividade te
 - Aula 9: `aula9Pratico.c` / `.pdf` — árvore B com 100.000 elementos (chaves por nó, tempo e altura).
 - Aula 11: `aula11Pratico.c` / `.pdf` — Tabela Hash com m = 10000: encadeamento x endereçamento aberto com sondagem linear.
 - Aula 12: `aula12Pratico.c` / `.pdf` — menor caminho em labirinto com grafo e busca em largura (BFS).
+
+### `trabalho3/`
+Trabalho 3 — Análise de dados em formato de grafos (dataset ego-Facebook do SNAP): grau, closeness e betweenness (Brandes) implementados em C, plot do grafo, busca e tempos. Detalhes em [`trabalho3/README.md`](trabalho3/README.md).
+- `joaomarcelo_francabatista_algoritmo.c` — programa com o menu A–G do enunciado.
+- `joaomarcelo_francabatista_plot.py` — plot do grafo (NetworkX + matplotlib).
+- `validacao/` — conferência dos resultados contra o NetworkX.
 
 ### `estudos/`
 Códigos de estudo pessoal em C, sem vínculo direto com uma atividade avaliativa específica (ex.: implementações de algoritmos de ordenação).
