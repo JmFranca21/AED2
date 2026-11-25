@@ -11,6 +11,7 @@ Enunciado: [`enunciados-atvs/Trabalho 3 - Analise de dados em formato de grafos.
 | `joaomarcelo_francabatista_base.txt` | Dataset ego-Facebook do SNAP (`facebook_combined.txt`): 4.039 vértices, 88.234 arestas |
 | `grafo_layout.csv` | Posições já calculadas dos vértices (cache do plot, deixa a opção B instantânea) |
 | `resultados/` | Figuras, rankings completos, saídas do programa, validação e tempos no ego-Facebook |
+| `relatorio/` | Relatório IEEE (LaTeX, classe IEEEtran): `joaomarcelo_francabatista_relatorio.pdf` + `.tex` + figuras (abre no Overleaf) |
 | `medir_tempos_windows.bat` | Dois cliques: compila com o gcc do Windows (`-O2` e `-O0`), roda o item G e grava `tempos_windows.txt` |
 | `validacao/validar_networkx.py` | Confere os resultados do C contra o NetworkX (não faz parte da entrega) |
 | `validacao/karate.txt` | Karate Club (34 vértices), usado como teste |

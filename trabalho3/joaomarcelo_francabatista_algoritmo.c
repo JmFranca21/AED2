@@ -920,8 +920,7 @@ int main(int argc, char **argv) {
 }
 
 /*
- * Nota de utilizacao de IA: uma LLM (Claude) foi utilizada para auxiliar na
- * formatacao correta e na inclusao de comentarios ao longo do codigo.
- * Alem das partes de impressao na tela (printf's) para melhor visualizacao
- * no momento de execucao.
+ * Nota de utilizacao de IA: uma LLM (Claude) foi utilizada como apoio na
+ * implementacao, nos comentarios ao longo do codigo, nas partes de impressao
+ * na tela (printf's) e na validacao dos resultados contra o NetworkX.
  */
