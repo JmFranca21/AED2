@@ -1,0 +1,178 @@
+AED2 - Trabalho 3 - Analise de dados em formato de grafos
+Joao Marcelo Franca Batista
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: 
+=== A) Leitura do arquivo e construcao do grafo ===
+Arquivo: joaomarcelo_francabatista_base.txt
+Linhas de aresta lidas:      88234
+Lacos ignorados:             0
+Arestas repetidas ignoradas: 0
+Vertices (n):                4039
+Arestas (m):                 88234
+Densidade 2m/(n(n-1)):       0.010820 (1.0820%)
+Grau medio 2m/n:             43.6910
+Grau minimo / maximo:        1 / 1045
+Componentes conexas:         1 (maior com 4039 vertices)
+Memoria - lista de adjacencia: 0.67 MB | matriz de adjacencia (1 byte/celula): 15.56 MB
+Tempo de leitura e construcao: 0.008795 s
+Exemplo - vizinhos dos 5 primeiros vertices lidos:
+  0 (grau 347): 1 2 3 4 5 6 7 8 9 10 ...
+  1 (grau 17): 0 48 53 54 73 88 92 119 126 133 ...
+  2 (grau 10): 0 20 115 116 149 226 312 326 333 343
+  3 (grau 17): 0 9 25 26 67 72 85 122 142 170 ...
+  4 (grau 10): 0 78 152 181 195 218 273 275 306 328
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: Calculando betweenness (Brandes, 4039 BFS)...
+
+=== E) Betweenness dos vertices - ordem crescente (4039 vertices) ===
+     pos       vertice         betweenness       betw_norm
+       1            11          0.00000000      0.00000000
+       2            12          0.00000000      0.00000000
+       3            15          0.00000000      0.00000000
+       4            18          0.00000000      0.00000000
+       5            32          0.00000000      0.00000000
+       6            33          0.00000000      0.00000000
+       7            35          0.00000000      0.00000000
+       8            37          0.00000000      0.00000000
+       9            42          0.00000000      0.00000000
+      10            43          0.00000000      0.00000000
+      11            44          0.00000000      0.00000000
+      12            46          0.00000000      0.00000000
+      13            47          0.00000000      0.00000000
+      14            52          0.00000000      0.00000000
+      15            63          0.00000000      0.00000000
+          ... 4009 linhas omitidas (lista completa em ranking_betweenness.txt) ...
+    4025           348     309711.20713202      0.03799810
+    4026          1577     324273.31463700      0.03978471
+    4027           414     388245.47598075      0.04763337
+    4028           860     471321.79261046      0.05782591
+    4029           563     511702.99655074      0.06278023
+    4030           428     524164.06777576      0.06430906
+    4031            58     687594.98337467      0.08436021
+    4032           567     784996.90559413      0.09631033
+    4033           698     940024.24648220      0.11533045
+    4034             0    1192496.11307939      0.14630592
+    4035          1085    1214577.75836048      0.14901509
+    4036          1912    1868918.21225679      0.22929534
+    4037          3437    1924506.15157150      0.23611536
+    4038          1684    2753286.68690828      0.33779745
+    4039           107    3916560.14444075      0.48051808
+
+--- Top 10 (do maior para o menor) ---
+       1           107    3916560.14444075      0.48051808
+       2          1684    2753286.68690828      0.33779745
+       3          3437    1924506.15157150      0.23611536
+       4          1912    1868918.21225679      0.22929534
+       5          1085    1214577.75836048      0.14901509
+       6             0    1192496.11307939      0.14630592
+       7           698     940024.24648220      0.11533045
+       8           567     784996.90559413      0.09631033
+       9            58     687594.98337467      0.08436021
+      10           428     524164.06777576      0.06430906
+(lista completa gravada em ranking_betweenness.txt)
+Tempo do calculo do betweenness: 2.113375 s | ordenacao (merge sort): 0.000350 s
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: Digite o ID do vertice (ou dois IDs para uma aresta): 
+=== F) Pesquisa no grafo ===
+Vertice 107 ENCONTRADO (indice interno 107).
+  grau: 1045 | vizinhos: 0 58 171 348 353 363 366 376 389 414 420 428 475 483 484 ... (+1030)
+  betweenness: 3916560.1444 | normalizado: 0.480518 (posicao 1)
+  Tempo medio por busca: tabela hash 2.2 ns | busca sequencial 38.6 ns
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: Digite o ID do vertice (ou dois IDs para uma aresta): 
+=== F) Pesquisa no grafo ===
+Vertice 5000 NAO foi encontrado no grafo.
+  Tempo medio por busca: tabela hash 1.4 ns | busca sequencial 1440.1 ns
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: Digite o ID do vertice (ou dois IDs para uma aresta): 
+=== F) Pesquisa no grafo ===
+Aresta (107, 1684) ENCONTRADA.
+  Distancia (caminho minimo pela BFS) entre eles: 1
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: 
+=== G) Tempo de execucao das metricas (3 execucoes cada) ===
+n = 4039, m = 88234
+  metrica      complex.       media (s)      min (s)      max (s)
+  Grau         O(V)            0.000007     0.000006     0.000008
+  Closeness    O(V(V+E))       0.686438     0.672011     0.710290
+  Betweenness  O(VE)           2.135336     2.093333     2.161907
+  Ordenacao    O(V log V)      0.000375
+
+--------------------------------------------------
+Arquivo: joaomarcelo_francabatista_base.txt  (n = 4039, m = 88234)
+  A - Ler o arquivo e gerar o grafo
+  B - Plot do grafo
+  C - Grau dos vertices (ordem crescente)
+  D - Closeness dos vertices (ordem crescente)
+  E - Betweenness dos vertices (ordem crescente)
+  F - Pesquisar vertice ("id") ou aresta ("id1 id2")
+  G - Tempo de execucao das metricas
+  T - Trocar o arquivo de entrada
+  0 - Sair
+Opcao: 

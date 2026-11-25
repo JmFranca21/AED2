@@ -1,0 +1,5 @@
+n = 4039, m = 88234
+grau         erro maximo = 4.98e-11   tempo NetworkX = 0.002 s
+closeness    erro maximo = 5.00e-11   tempo NetworkX = 25.605 s
+betweenness  erro maximo = 5.00e-11   tempo NetworkX = 81.094 s
+top-5 betweenness NetworkX: [107, 1684, 3437, 1912, 1085]

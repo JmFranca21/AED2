@@ -26,7 +26,7 @@ Legenda: ✅ concluída · 🟡 em andamento (falta algo) · ⬜ enunciado ainda
 
 | Trabalho | Tema | Entrega | Status |
 |----------|------|---------|--------|
-| 3 | Análise de dados em formato de grafos (grau, closeness, betweenness) | 07/12/2026 12:00 + apresentação | 🟡 código pronto e validado; faltam o dataset oficial, as figuras finais, o relatório IEEE e o vídeo |
+| 3 | Análise de dados em formato de grafos (grau, closeness, betweenness) | 07/12/2026 12:00 + apresentação | 🟡 código, dataset, figuras e validação prontos; faltam o relatório IEEE e o vídeo |
 
 Os enunciados de todas as aulas estão em `enunciados-atvs/`.
 

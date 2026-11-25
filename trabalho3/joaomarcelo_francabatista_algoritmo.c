@@ -507,9 +507,9 @@ int posicaoDecrescente(const Grafo *g, const double *valores, int v) {
 static void imprimirLinha(const Grafo *g, int pos, const Par *p,
                           const double *extra, int valorInteiro) {
     if (valorInteiro)
-        printf("  %6d  %12lld  %14.0f", pos, g->idOriginal[p->idx], p->valor);
+        printf("  %6d  %12lld  %18.0f", pos, g->idOriginal[p->idx], p->valor);
     else
-        printf("  %6d  %12lld  %14.8f", pos, g->idOriginal[p->idx], p->valor);
+        printf("  %6d  %12lld  %18.8f", pos, g->idOriginal[p->idx], p->valor);
     if (extra) printf("  %14.8f", extra[p->idx]);
     printf("\n");
 }
@@ -523,7 +523,7 @@ void imprimirRanking(const Grafo *g, const double *valores, const double *extra,
     Par *p = ordenarCrescente(g, valores, tempoOrdenacao);
 
     printf("\n=== %s - ordem crescente (%d vertices) ===\n", titulo, n);
-    printf("  %6s  %12s  %14s", "pos", "vertice", nomeValor);
+    printf("  %6s  %12s  %18s", "pos", "vertice", nomeValor);
     if (extra) printf("  %14s", nomeExtra);
     printf("\n");
     if (n <= LIMITE_TELA) {

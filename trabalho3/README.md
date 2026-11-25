@@ -8,7 +8,9 @@ Enunciado: [`enunciados-atvs/Trabalho 3 - Analise de dados em formato de grafos.
 |---|---|
 | `joaomarcelo_francabatista_algoritmo.c` | Programa em C: leitura, TAD grafo (lista de adjacência), tabela hash, grau, closeness (BFS), betweenness (Brandes), merge sort, busca, tempos e menu A–G |
 | `joaomarcelo_francabatista_plot.py` | Plot do grafo (item B) com NetworkX + matplotlib, usando as métricas calculadas em C |
-| `joaomarcelo_francabatista_base.txt` | Dataset ego-Facebook (SNAP) — *a adicionar* |
+| `joaomarcelo_francabatista_base.txt` | Dataset ego-Facebook do SNAP (`facebook_combined.txt`): 4.039 vértices, 88.234 arestas |
+| `grafo_layout.csv` | Posições já calculadas dos vértices (cache do plot, deixa a opção B instantânea) |
+| `resultados/` | Figuras, rankings completos, saídas do programa e validação no ego-Facebook |
 | `validacao/validar_networkx.py` | Confere os resultados do C contra o NetworkX (não faz parte da entrega) |
 | `validacao/karate.txt` | Karate Club (34 vértices), usado como teste |
 
@@ -21,7 +23,7 @@ gcc joaomarcelo_francabatista_algoritmo.c -o trabalho3 -O2
 ./trabalho3 joaomarcelo_francabatista_base.txt --auto   # roda tudo sem menu
 ```
 
-Para o plot (opção B do menu, ou direto): `pip install networkx matplotlib scipy` e depois `python joaomarcelo_francabatista_plot.py`. O layout é calculado na primeira vez (cerca de 1 minuto para 4 mil vértices) e salvo em `grafo_layout.csv`, de modo que as execuções seguintes são instantâneas. Os arquivos `grafo_vertices.csv` e `grafo_arestas.csv` também abrem no Gephi.
+Para o plot (opção B do menu, ou direto): `pip install networkx matplotlib scipy` e depois `python joaomarcelo_francabatista_plot.py`. O layout leva cerca de 1 minuto para 4 mil vértices; para o ego-Facebook ele já está salvo em `grafo_layout.csv`, então o plot sai na hora (para outro dataset, apague o arquivo). Os arquivos `grafo_vertices.csv` e `grafo_arestas.csv` também abrem no Gephi.
 
 ### Saídas
 - `ranking_grau.txt`, `ranking_closeness.txt`, `ranking_betweenness.txt`: listas completas em ordem crescente.
@@ -44,5 +46,20 @@ Para o plot (opção B do menu, ou direto): `pip install networkx matplotlib sci
 |---|---|---|---|---|---|
 | Karate Club | 34 | 78 | ~5·10⁻¹¹ nas três | < 1 ms | < 5 ms |
 | Sintético (power-law cluster, seed 42) | 4.040 | 87.932 | ~5·10⁻¹¹ nas três | 1,0 s / 4,8 s | 38,4 s / 139,7 s |
+| **ego-Facebook** | 4.039 | 88.234 | ~5·10⁻¹¹ nas três | 0,69 s / 2,14 s | 25,6 s / 81,1 s |
 
 O erro de ~10⁻¹¹ é só o arredondamento das 10 casas decimais do CSV. No Karate, o betweenness do vértice 1 dá 231,07, o valor conhecido da literatura. Os tempos são do ambiente de desenvolvimento; os do relatório serão medidos no notebook (i5-1035G1).
+
+## Resultados no ego-Facebook
+
+Grafo conexo (1 componente), densidade 1,08%, grau médio 43,69, grau mínimo 1 e máximo 1.045.
+
+| # | Grau | Closeness | Betweenness (norm.) |
+|---|---|---|---|
+| 1 | 107 (1045) | 107 (0,4597) | 107 (0,4805) |
+| 2 | 1684 (792) | 58 (0,3974) | 1684 (0,3378) |
+| 3 | 1912 (755) | 428 (0,3948) | 3437 (0,2361) |
+| 4 | 3437 (547) | 563 (0,3939) | 1912 (0,2293) |
+| 5 | 0 (347) | 1684 (0,3936) | 1085 (0,1490) |
+
+O vértice 107 lidera as três métricas. No plot, os vértices de maior betweenness aparecem como pontes entre as comunidades. Busca do item F: tabela hash ~1–2 ns por busca; busca sequencial ~40 ns (ID no início) a ~1.440 ns (ID inexistente).
